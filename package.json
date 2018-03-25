@@ -4,7 +4,8 @@
   "description": "lessons",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "gulp-rename": "^1.2.2"
+    "font-awesome": "^4.7.0",
+    "gulp-rename": "^1.2.2",
+    "normalize.scss": "^0.1.0"
   }
 }
