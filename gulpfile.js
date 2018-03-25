@@ -41,7 +41,7 @@ gulp.task('sprite', function(cb) {
         }));
 
     spriteData.img.pipe(gulp.dest('build/images/'));
-    spriteData.css.pipe(gulp.dest('source/style/global/'));
+    spriteData.css.pipe(gulp.dest('source/styles/global/'));
     cb()
 });
 
