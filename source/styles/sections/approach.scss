@@ -2,6 +2,11 @@
 	padding: 86px 0 94px;
 	background: #f3f3f3;
 	
+	@media (max-width: 700px) {
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+	
 	&__list {
 		margin: 0;
 		padding: 0;
@@ -15,13 +20,25 @@
 		color: #424242;
 		background: #fff;
 		
+		@media (max-width: 700px) {
+			padding: 20px 20px;
+		}
+		
 		&:nth-child(2n) {
 			display: flex;
 			flex-direction: row-reverse;
 			text-align: right;
 			
+			@media (max-width: 700px) {
+				display: block;
+			}
+			
 			.approach__text {
-				padding:70px 90px;
+				padding: 70px 90px;
+				
+				@media (max-width: 985px) {
+					padding: 25px 20px;
+				}
 			}
 			
 			.approach__step {
@@ -33,10 +50,20 @@
 	
 	&__image {
 		position: relative;
-		min-width: 340px;
-		min-height: 236px;
+		max-width: 340px;
+		max-height: 236px;
 		display: inline-block;
 		vertical-align: top;
+		
+		@media (max-width: 985px) {
+			max-width: calc(340px / 1.5);
+			max-height: calc(256px / 1.5);
+		}
+		
+		@media (max-width: 700px) {
+			margin: auto;
+			display: block;
+		}
 	}
 	
 	&__picture {
@@ -51,6 +78,15 @@
 		width: 64%;
 		padding: 70px 70px 55px 90px;
 		font-size: 0.875rem;
+		
+		@media (max-width: 985px) {
+			padding: 25px 20px;
+		}
+		
+		@media (max-width: 700px) {
+			width: 100%;
+			text-align: center;
+		}
 	}
 	
 	&__step {
@@ -74,6 +110,10 @@
 			font-family: $ff-steps;
 			line-height: 1;
 			color: #fff;
+		}
+		
+		@media (max-width: 985px) {
+			display: none;
 		}
 	}
 	
