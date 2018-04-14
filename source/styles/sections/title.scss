@@ -1,17 +1,29 @@
 .title {
-	margin-bottom: 65px;
+	margin-bottom: 63px;
 	text-align: center;
+	
+	@media (max-width: 515px) {
+		margin-bottom: 35px;
+	}
 	
 	&__header {
 		margin: 0;
 		font-size: 2.25rem;
 		font-family: $ff-main-bold;
 		line-height: 1;
+		
+		@media (max-width: 375px) {
+			font-size: 1.25rem;
+		}
 	}
 	
 	&__text {
 		font-size: 1.25rem;
 		font-family: $ff-main-light;
+		
+		@media (max-width: 375px) {
+			font-size: 1rem;
+		}
 	}
 	
 	&--with-bottom-line {
