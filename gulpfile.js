@@ -5,6 +5,9 @@ const sass        = require('gulp-sass');
 const sprite      = require('gulp.spritesmith');
 const rimraf      = require('rimraf');
 const rename      = require('gulp-rename');
+const uglify      = require('gulp-uglify');
+const concat      = require('gulp-concat');
+const sourcemaps  = require('gulp-sourcemaps');
 
 
 gulp.task('server', function() {
@@ -31,6 +34,19 @@ gulp.task('styles:compile', function() {
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('build/css'))
     ;
+});
+
+gulp.task('js', function () {
+    return gulp.src([
+            'source/js/main.js',
+            'source/js/form.js',
+            'source/js/navigation.js',
+        ])
+        .pipe(sourcemaps.init())
+        .pipe(concat('main.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('build/js'))
 });
 
 gulp.task('sprite', function(cb) {
@@ -66,6 +82,7 @@ gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
 gulp.task('watch', function() {
     gulp.watch('source/templates/**/*.pug', gulp.series('templates:compile'));
     gulp.watch('source/styles/**/*.scss', gulp.series('styles:compile'));
+    gulp.watch('source/js/**/*.js', gulp.series('js'));
 });
 
 gulp.task('default', gulp.series(
