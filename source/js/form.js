@@ -21,5 +21,39 @@
 		form.classList.add('is-hidden');
 	};
 
-	window.form = me;
-})();
+	me.isValid = function() {
+		var fields = document.querySelectorAll('[data-valid="required"]');
+		var email  = document.querySelector('[data-email]').value;
+		var number = document.querySelector('[data-number]').value;
+
+		if (false === me.isAllCompleted(fields)) {
+			console.log('fill all fields');
+			return false;
+		}
+		else if (false === ITVDN.validation.isEmail(email)) {
+			console.log('wrong mail');
+			return false;
+		}
+		else if (false === ITVDN.validation.isNumber(number)) {
+			console.log('wrong number');
+			return false;
+		}
+
+		return true;
+	};
+
+	me.isAllCompleted = function(data) {
+		var result = true;
+
+		for (var i = 0; i < data.length; i++) {
+			if (false === ITVDN.validation.isNotEmpty(data[i].value)) {
+				result = false;
+				break;
+			}
+		}
+
+		return result;
+	};
+
+	ITVDN.form = me;
+}());
